@@ -7,9 +7,21 @@ The goal of this project is to explore and modify the **Izhikevich neuron model*
 
 The Izhikevich model is governed by the following differential equations:
 
+$$
+\frac{dV}{dt} = 0.04V^2 + 5V + 140 - u + I
+$$
+
+$$
+\frac{du}{dt} = a(bV - u)
+$$
+
 with a spike-reset condition:
 
-where represents the membrane potential, is the recovery variable, is the input current, and are parameters defining neuron dynamics.
+$$
+if V>=30 mV, then V ← c,  u ← u+d
+$$
+
+where *V* represents the membrane potential, *u* is the recovery variable, *I* is the input current, *a*,*b*,*c*,*d* and are parameters defining neuron dynamics.
 
 ----------
 
@@ -37,12 +49,12 @@ The project extends the base Izhikevich model by incorporating **different input
 
  **Parameter Exploration**:
 
--   Effect of varying and parameters on neuron behavior.
+-   Effect of varying *a* and *b* parameters on neuron behavior.
     
 
  **Advanced Analysis**:
 
--   **Phase Plane Analysis**: Visualizing neuron dynamics in the plane.
+-   **Phase Plane Analysis**: Visualizing neuron dynamics in the (*V*,*u*) plane.
     
 -   **Firing Rate vs. Input Current (F-I Curve)**: Analyzing how the neuron’s firing rate changes with increasing input.
     
@@ -57,7 +69,7 @@ The project extends the base Izhikevich model by incorporating **different input
 Each neuron type was simulated under step, sinusoidal, and noisy currents. It shows the membrane potential response for a Regular Spiking neuron under different inputs. The results confirm that step currents induce sustained firing, while sinusoidal and noisy currents create more complex firing patterns.
 
 2. **Phase Plane Analysis**  
-The phase plane plots illustrate the trajectory of and , showing how neurons stabilize after spiking. Different neuron types exhibit distinct phase trajectories.
+The phase plane plots illustrate the trajectory of *V* and *u*, showing how neurons stabilize after spiking. Different neuron types exhibit distinct phase trajectories.
 
 3. **Firing Rate vs. Input Current (F-I Curve)**  
 The firing rate increases with higher input currents, exhibiting an approximately linear trend. This validates the neuron’s ability to encode stimulus intensity.
